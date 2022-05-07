@@ -10,7 +10,8 @@ sdkmanager \
 --host \
 --target JETSON_TX2_TARGETS \
 --flash all \
---license accept
+--license accept \
+--additionalsdk DeepStream
 
 exec "$@"
 
