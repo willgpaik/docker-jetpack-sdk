@@ -11,5 +11,4 @@ docker run -it \
     --user "$(id -u):$(id -g)" \
     --env="DISPLAY=$DISPLAY" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --tz="America/New_York" \
     jetpack-sdk /bin/bash
