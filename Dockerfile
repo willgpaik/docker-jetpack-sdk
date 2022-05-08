@@ -28,6 +28,12 @@ RUN sudo apt-get update && sudo apt-get install -y \
     nodejs \
     firefox \
     npm
+    
+# Add timezone info
+RUN apt-get update && \
+    apt-get install -yq tzdata && \
+    ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 COPY sdkmanager_1.0.1-5538_amd64.deb /
 COPY entrypoint.sh /entrypoint.sh
