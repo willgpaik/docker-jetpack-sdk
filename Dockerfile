@@ -30,10 +30,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
     npm
     
 # Add timezone info
-RUN apt-get update && \
-    apt-get install -yq tzdata && \
-    ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+RUN DEBIAN_FRONTEND=noninteractive TZ="America/New_York" sudo apt-get -y install tzdata
 
 COPY sdkmanager_1.0.1-5538_amd64.deb /
 COPY entrypoint.sh /entrypoint.sh
