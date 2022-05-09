@@ -32,8 +32,8 @@ RUN sudo apt-get update && sudo apt-get install -y \
 # Add timezone info
 RUN DEBIAN_FRONTEND=noninteractive TZ="America/New_York" sudo apt-get -y install tzdata
 
-COPY sdkmanager_1.0.1-5538_amd64.deb /
+COPY sdkmanager_1.8.0-10363_amd64.deb /
 COPY entrypoint.sh /entrypoint.sh
-RUN sudo apt-get install -y /sdkmanager_1.0.1-5538_amd64.deb
+RUN sudo apt-get install -y /sdkmanager_1.8.0-10363_amd64.deb
 
 ENTRYPOINT [ "/entrypoint.sh" ]
