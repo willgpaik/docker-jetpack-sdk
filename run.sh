@@ -11,5 +11,6 @@ docker run -it \
     --user "$(id -u):$(id -g)" \
     --env="DISPLAY=$DISPLAY" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --env-host \
+    --add-host="myhost:127.0.1.1" \
+    --hostname="myhost" \
     jetpack-sdk /bin/bash
