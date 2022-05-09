@@ -5,6 +5,8 @@ ARG GROUP_ID
 
 # Add user to sudoers
 RUN apt-get update && apt-get install -y sudo
+RUN apt update && apt install tzdata -y
+ENV TZ="America/New_York"
 RUN addgroup --gid $GROUP_ID user
 RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
 RUN adduser user sudo
@@ -28,9 +30,6 @@ RUN sudo apt-get update && sudo apt-get install -y \
     nodejs \
     firefox \
     npm
-    
-# Add timezone info
-RUN DEBIAN_FRONTEND=noninteractive TZ="America/New_York" sudo apt-get -y install tzdata
 
 COPY sdkmanager_1.8.0-10363_amd64.deb /
 COPY entrypoint.sh /entrypoint.sh
